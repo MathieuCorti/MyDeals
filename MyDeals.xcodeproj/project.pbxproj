@@ -15,6 +15,18 @@
 		4E02882F1F4BFAB8009C92EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E02882D1F4BFAB8009C92EF /* LaunchScreen.storyboard */; };
 		4E02883A1F4BFAB9009C92EF /* MyDealsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0288391F4BFAB9009C92EF /* MyDealsTests.swift */; };
 		4E0288451F4BFAB9009C92EF /* MyDealsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0288441F4BFAB9009C92EF /* MyDealsUITests.swift */; };
+		4E09C7931F5FA22C005A028C /* DatabaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E09C7921F5FA22C005A028C /* DatabaseController.swift */; };
+		4E09C79E1F5FA562005A028C /* Deal+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E09C79C1F5FA562005A028C /* Deal+CoreDataClass.swift */; };
+		4E09C79F1F5FA562005A028C /* Deal+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E09C79D1F5FA562005A028C /* Deal+CoreDataProperties.swift */; };
+		4E36216F1F4BFEA9009FE217 /* DealCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E36216E1F4BFEA9009FE217 /* DealCell.swift */; };
+		4E7D86C31F6AAF90000F70A9 /* Deals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7D86C21F6AAF90000F70A9 /* Deals.swift */; };
+		4E8054191F5011FE007D4BEA /* ImageDownload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8054181F5011FE007D4BEA /* ImageDownload.swift */; };
+		4EA0EF191F5CF857005CE296 /* MyDeals.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4EA0EF171F5CF857005CE296 /* MyDeals.xcdatamodeld */; };
+		4EA0EF1D1F5CF8E0005CE296 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA0EF1C1F5CF8E0005CE296 /* CoreData.framework */; };
+		4ECAD5361F6B8D150066774C /* EditDealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECAD5351F6B8D150066774C /* EditDealView.swift */; };
+		4ECAD5381F6B94490066774C /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECAD5371F6B94490066774C /* Observer.swift */; };
+		4ECAD53A1F6BA3730066774C /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECAD5391F6BA3730066774C /* Observable.swift */; };
+		4EE5CF591F4C1AB60012CCF9 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE5CF581F4C1AB60012CCF9 /* WebView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +61,18 @@
 		4E0288401F4BFAB9009C92EF /* MyDealsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyDealsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E0288441F4BFAB9009C92EF /* MyDealsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDealsUITests.swift; sourceTree = "<group>"; };
 		4E0288461F4BFAB9009C92EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4E09C7921F5FA22C005A028C /* DatabaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseController.swift; sourceTree = "<group>"; };
+		4E09C79C1F5FA562005A028C /* Deal+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Deal+CoreDataClass.swift"; sourceTree = "<group>"; };
+		4E09C79D1F5FA562005A028C /* Deal+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Deal+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		4E36216E1F4BFEA9009FE217 /* DealCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealCell.swift; sourceTree = "<group>"; };
+		4E7D86C21F6AAF90000F70A9 /* Deals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deals.swift; sourceTree = "<group>"; };
+		4E8054181F5011FE007D4BEA /* ImageDownload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDownload.swift; sourceTree = "<group>"; };
+		4EA0EF181F5CF857005CE296 /* MyDeals.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyDeals.xcdatamodel; sourceTree = "<group>"; };
+		4EA0EF1C1F5CF8E0005CE296 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		4ECAD5351F6B8D150066774C /* EditDealView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditDealView.swift; sourceTree = "<group>"; };
+		4ECAD5371F6B94490066774C /* Observer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
+		4ECAD5391F6BA3730066774C /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		4EE5CF581F4C1AB60012CCF9 /* WebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EA0EF1D1F5CF8E0005CE296 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +108,7 @@
 				4E0288381F4BFAB9009C92EF /* MyDealsTests */,
 				4E0288431F4BFAB9009C92EF /* MyDealsUITests */,
 				4E0288201F4BFAB8009C92EF /* Products */,
+				4EA0EF1B1F5CF8DF005CE296 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,13 +125,16 @@
 		4E0288211F4BFAB8009C92EF /* MyDeals */ = {
 			isa = PBXGroup;
 			children = (
+				4E8054171F5011E8007D4BEA /* Helpers */,
+				4E3621701F4BFEB2009FE217 /* Views */,
+				4EA0EF1A1F5CF876005CE296 /* DataModels */,
+				4E36216B1F4BFE4C009FE217 /* Models */,
 				4E0288221F4BFAB8009C92EF /* AppDelegate.swift */,
-				4E0288241F4BFAB8009C92EF /* MasterViewController.swift */,
-				4E0288261F4BFAB8009C92EF /* DetailViewController.swift */,
 				4E0288281F4BFAB8009C92EF /* Main.storyboard */,
 				4E02882B1F4BFAB8009C92EF /* Assets.xcassets */,
 				4E02882D1F4BFAB8009C92EF /* LaunchScreen.storyboard */,
 				4E0288301F4BFAB8009C92EF /* Info.plist */,
+				4E09C7921F5FA22C005A028C /* DatabaseController.swift */,
 			);
 			path = MyDeals;
 			sourceTree = "<group>";
@@ -126,6 +155,54 @@
 				4E0288461F4BFAB9009C92EF /* Info.plist */,
 			);
 			path = MyDealsUITests;
+			sourceTree = "<group>";
+		};
+		4E36216B1F4BFE4C009FE217 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4E09C79C1F5FA562005A028C /* Deal+CoreDataClass.swift */,
+				4E09C79D1F5FA562005A028C /* Deal+CoreDataProperties.swift */,
+				4E7D86C21F6AAF90000F70A9 /* Deals.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		4E3621701F4BFEB2009FE217 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4E36216E1F4BFEA9009FE217 /* DealCell.swift */,
+				4E0288241F4BFAB8009C92EF /* MasterViewController.swift */,
+				4E0288261F4BFAB8009C92EF /* DetailViewController.swift */,
+				4EE5CF581F4C1AB60012CCF9 /* WebView.swift */,
+				4ECAD5351F6B8D150066774C /* EditDealView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		4E8054171F5011E8007D4BEA /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				4E8054181F5011FE007D4BEA /* ImageDownload.swift */,
+				4ECAD5371F6B94490066774C /* Observer.swift */,
+				4ECAD5391F6BA3730066774C /* Observable.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		4EA0EF1A1F5CF876005CE296 /* DataModels */ = {
+			isa = PBXGroup;
+			children = (
+				4EA0EF171F5CF857005CE296 /* MyDeals.xcdatamodeld */,
+			);
+			name = DataModels;
+			sourceTree = "<group>";
+		};
+		4EA0EF1B1F5CF8DF005CE296 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4EA0EF1C1F5CF8E0005CE296 /* CoreData.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,7 +268,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Mathieu Corti";
 				TargetAttributes = {
 					4E02881E1F4BFAB8009C92EF = {
@@ -262,9 +339,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4ECAD5381F6B94490066774C /* Observer.swift in Sources */,
 				4E0288271F4BFAB8009C92EF /* DetailViewController.swift in Sources */,
+				4EA0EF191F5CF857005CE296 /* MyDeals.xcdatamodeld in Sources */,
+				4E09C79E1F5FA562005A028C /* Deal+CoreDataClass.swift in Sources */,
+				4E8054191F5011FE007D4BEA /* ImageDownload.swift in Sources */,
 				4E0288251F4BFAB8009C92EF /* MasterViewController.swift in Sources */,
+				4E09C79F1F5FA562005A028C /* Deal+CoreDataProperties.swift in Sources */,
+				4E09C7931F5FA22C005A028C /* DatabaseController.swift in Sources */,
+				4E7D86C31F6AAF90000F70A9 /* Deals.swift in Sources */,
 				4E0288231F4BFAB8009C92EF /* AppDelegate.swift in Sources */,
+				4ECAD53A1F6BA3730066774C /* Observable.swift in Sources */,
+				4E36216F1F4BFEA9009FE217 /* DealCell.swift in Sources */,
+				4EE5CF591F4C1AB60012CCF9 /* WebView.swift in Sources */,
+				4ECAD5361F6B8D150066774C /* EditDealView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,7 +417,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -337,7 +427,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -380,7 +474,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -388,7 +484,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -511,6 +611,7 @@
 				4E02884B1F4BFAB9009C92EF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4E02884C1F4BFAB9009C92EF /* Build configuration list for PBXNativeTarget "MyDealsTests" */ = {
 			isa = XCConfigurationList;
@@ -519,6 +620,7 @@
 				4E02884E1F4BFAB9009C92EF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4E02884F1F4BFAB9009C92EF /* Build configuration list for PBXNativeTarget "MyDealsUITests" */ = {
 			isa = XCConfigurationList;
@@ -527,8 +629,22 @@
 				4E0288511F4BFAB9009C92EF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4EA0EF171F5CF857005CE296 /* MyDeals.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4EA0EF181F5CF857005CE296 /* MyDeals.xcdatamodel */,
+			);
+			currentVersion = 4EA0EF181F5CF857005CE296 /* MyDeals.xcdatamodel */;
+			path = MyDeals.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 4E0288171F4BFAB8009C92EF /* Project object */;
 }
