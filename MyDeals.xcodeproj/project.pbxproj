@@ -273,6 +273,7 @@
 				TargetAttributes = {
 					4E02881E1F4BFAB8009C92EF = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 86LQ7L7E3H;
 						ProvisioningStyle = Automatic;
 					};
 					4E0288341F4BFAB9009C92EF = {
@@ -518,7 +519,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 86LQ7L7E3H;
 				INFOPLIST_FILE = MyDeals/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.corti.MyDeals;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -530,7 +533,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 86LQ7L7E3H;
 				INFOPLIST_FILE = MyDeals/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.corti.MyDeals;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -39,6 +39,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var dealDescription: UITextView!
     
     @IBOutlet weak var goToDeal_button: UIButton!
+    @IBOutlet weak var editDeal_button: UIBarButtonItem!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +59,9 @@ class DetailViewController: UIViewController {
         // Update the user interface for the detail item.
         if let deal = dealItem {
 
+            if !deal.isEditable {
+                editDeal_button.isEnabled = false
+            }
             if let title = dealTitle {
                 title.text = deal.title
                 title.numberOfLines = 1
@@ -84,7 +88,7 @@ class DetailViewController: UIViewController {
 //                description.text = deal.desc
             }
             
-            if deal.link == nil {
+            if deal.link == nil || (deal.link?.isEmpty)! {
                 if let gtd = goToDeal_button {
                     gtd.isHidden = true
                 }
@@ -119,6 +123,11 @@ class DetailViewController: UIViewController {
             let controller = segue.destination as! WebView
             controller.link = deal.link!
             
+        } else if segue.identifier == "editDeal" {
+
+            let controller = segue.destination as! EditDealView
+            controller.isNewDeal = false
+            controller.deal = dealItem!
         }
     }
     

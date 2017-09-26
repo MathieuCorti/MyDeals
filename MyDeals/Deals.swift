@@ -28,12 +28,8 @@ final class Deals : Observable {
     var observer:PropertyObserver?
     
     var deals: [[Deal]] = [[], []] {
-
-        willSet(newValue) {
-            print("On willSet")
-        }
         didSet {
-            print("On didSet")
+            self.notify(propertyName: Deals.DEALS_NAME, propertyValue: self.deals)
         }
     }
 
@@ -94,9 +90,10 @@ final class Deals : Observable {
                     // IMAGE LINK
                     newDeal.imageLink = (deal["largeImageUrl"] as? String)!
                     
-                    self.deals[INDEX_GROUPON].append(newDeal)
+                    // DISABLE EDITTING
+                    newDeal.isEditable = false
                     
-                    self.notify(propertyName: Deals.DEALS_NAME, propertyValue: self.deals)
+                    self.deals[INDEX_GROUPON].append(newDeal)
                 }
                 
             } catch {

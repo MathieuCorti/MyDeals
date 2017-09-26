@@ -22,6 +22,7 @@ extension Deal {
     @NSManaged public var merchant: String?
     @NSManaged public var price: String?
     @NSManaged public var title: String?
+    @NSManaged public var isEditable: Bool
     
     //MARK: - Initialize
     convenience init(needSave: Bool,  context: NSManagedObjectContext?) {

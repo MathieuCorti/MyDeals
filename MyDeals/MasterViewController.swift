@@ -41,10 +41,10 @@ class MasterViewController: UITableViewController {
 
             // To Get transparent navigationBar
             navController.navigationBar.setBackgroundImage(UIImage(), for: UIBarPosition.any, barMetrics: UIBarMetrics.default)
-            //To remove black hairline under the Navigationbar
+            // To remove black hairline under the Navigationbar
             navController.navigationBar.shadowImage = UIImage()
             navController.navigationBar.isTranslucent = false
-            //To apply your tint background to navigationBar
+            // To apply your tint background to navigationBar
             navController.navigationBar.barTintColor = UIColor(red:0.98, green:0.20, blue:0.33, alpha:1.0)
         }
 
@@ -55,9 +55,6 @@ class MasterViewController: UITableViewController {
     }
     
     private func updateTableView(_: String, _: Any?) {
-
-        print("Notify retreived !")
-        
         // Update tableview
         DispatchQueue.main.async {
             self.tableView.reloadData()
@@ -100,9 +97,6 @@ class MasterViewController: UITableViewController {
                 controller.link = deal.link!
             }
             
-        } else if segue.identifier == "editDeal" {
-            
-//            let controller = segue.destination as! EditDealView
         }
     }
 
@@ -155,11 +149,10 @@ class MasterViewController: UITableViewController {
         deal.dealTitle.adjustsFontSizeToFitWidth = true
 
         deal.dealMerchant.text  = dealObject.merchant
-        deal.link               = dealObject.link!
         deal.dealPicture.downloadAsyncFrom(link: dealObject.imageLink!)
-        
-        if (dealObject.link?.isEmpty)! {
-            
+
+        if dealObject.link == nil || (dealObject.link?.isEmpty)! {
+         
             deal.goToDealButton.isUserInteractionEnabled = false
             deal.goToDealButton.setTitle("In store", for: .normal)
             
@@ -169,6 +162,7 @@ class MasterViewController: UITableViewController {
             
         } else {
             
+            deal.link = dealObject.link!
             // Edit button
             deal.goToDealButton.layer.cornerRadius = 3
             
@@ -198,10 +192,11 @@ class MasterViewController: UITableViewController {
         var deal:Deal = NSEntityDescription.insertNewObject(forEntityName: "Deal", into: DatabaseController.getContext()) as! Deal
         deal.title = "1 free hot coffee"
         deal.merchant = "@Starbucks"
-        deal.desc = "Go to starbucks and grab your free coffee !\nOnly the 25 of august."
+        deal.desc = "Go to starbucks and grab your free coffee !<br>Only the 25 of august."
         deal.price = "Free"
         deal.imageLink = "https://s-media-cache-ak0.pinimg.com/originals/42/a7/c0/42a7c061205975eee974e10a3d4b5487.jpg"
         deal.link = ""
+        deal.isEditable = true
         
         deal = NSEntityDescription.insertNewObject(forEntityName: "Deal", into: DatabaseController.getContext()) as! Deal
         deal.title = "30% off sport items"
@@ -210,30 +205,34 @@ class MasterViewController: UITableViewController {
         deal.price = "30% off"
         deal.imageLink = "http://www.thesempost.com/wp-content/uploads/2014/09/amazon-thumb.png"
         deal.link = "https://www.amazon.com/sports-outdoors/b?ie=UTF8&node=3375251"
+        deal.isEditable = true
         
         deal = NSEntityDescription.insertNewObject(forEntityName: "Deal", into: DatabaseController.getContext()) as! Deal
         deal.title = "eBay 20% off Tech Sale at 62 Stores"
         deal.merchant = "@Ebay"
-        deal.desc = "This offer commences at 16.00 (AEST) on 14 August 2017 and ends at 23.59 (AEST) on 21 August 2017 (“Offer Period”).\\nOnly 3 transactions per person during the Offer Period.\\nThe total discount is capped at $1000 per transaction.\\nTo search the sale, use the blue search box via the main link.\\nUse the code PTECH20."
+        deal.desc = "This offer commences at 16.00 (AEST) on 14 August 2017 and ends at 23.59 (AEST) on 21 August 2017 (“Offer Period”).<br>Only 3 transactions per person during the Offer Period.<br>The total discount is capped at $1000 per transaction.<br>To search the sale, use the blue search box via the main link.<br>Use the code PTECH20."
         deal.price = "20% off"
         deal.imageLink = "https://d2hzvxamqgodh.cloudfront.net/sites/default/files/dealimage/new-ebay-logo_2.jpg"
         deal.link = "https://www.ebay.com.au/rpp/tech-sale"
+        deal.isEditable = true
         
         deal = NSEntityDescription.insertNewObject(forEntityName: "Deal", into: DatabaseController.getContext()) as! Deal
         deal.title = "Sony MDR-1000X $392 Delivered"
         deal.merchant = "@Amazon"
-        deal.desc = "Isolate yourself from external noise with industry-leading noise cancelation\\nEnjoy Bluetooth wireless connectivity and Hi-Fi quality audio, Driver Unit 40mm, dome type(CCAW Voice Coil), Frequency Response (Hz) 4Hz-40 000Hz\\nListen to ambient sounds quickly and clearly with Quick Attention\\nHear music at its best with Hi-Res Audio"
+        deal.desc = "Isolate yourself from external noise with industry-leading noise cancelation<br>Enjoy Bluetooth wireless connectivity and Hi-Fi quality audio, Driver Unit 40mm, dome type(CCAW Voice Coil), Frequency Response (Hz) 4Hz-40 000Hz<br>Listen to ambient sounds quickly and clearly with Quick Attention<br>Hear music at its best with Hi-Res Audio"
         deal.price = "US $309.57 (~AU $392)"
         deal.imageLink = "http://brain-images.cdn.dixons.com/6/7/10151876/l_10151876_004.jpg"
         deal.link = "https://www.amazon.com/exec/obidos/ASIN/B01KHZ4ZYY/ozba0e-20"
+        deal.isEditable = true
         
         deal = NSEntityDescription.insertNewObject(forEntityName: "Deal", into: DatabaseController.getContext()) as! Deal
         deal.title = "15 Wicked Wings for $10"
         deal.merchant = "@KFC"
-        deal.desc = "Also available: Zinger Mozzarella Burger $7.95 ($10.50 in combo). The Zinger Mozzarella Burger is a zinger burger with bacon and a fried Mozzarella patty.\\n\\nThe starts on 8th August (7th August in QLD/WA only)."
+        deal.desc = "Also available: Zinger Mozzarella Burger $7.95 ($10.50 in combo). The Zinger Mozzarella Burger is a zinger burger with bacon and a fried Mozzarella patty.<br><br>The starts on 8th August (7th August in QLD/WA only)."
         deal.price = "10$"
         deal.imageLink = "https://upload.wikimedia.org/wikipedia/en/thumb/b/bf/KFC_logo.svg/1024px-KFC_logo.svg.png"
         deal.link = "https://www.kfc.com.au/menu/chicken/15-wings-for-10"
+        deal.isEditable = true
         
         deal = NSEntityDescription.insertNewObject(forEntityName: "Deal", into: DatabaseController.getContext()) as! Deal
         deal.title = "50x 6x4' Photos - $2.95 Posted"
@@ -242,14 +241,16 @@ class MasterViewController: UITableViewController {
         deal.price = "2.95$"
         deal.imageLink = "https://lh3.googleusercontent.com/7d6vwBri4TBAzPp28Y1hnW55M5xJpE06EIDIj2KH7bWToZLlR62NRuE5duGS7D5GxVc=w300"
         deal.link = "https://www.snapfish.com.au/store/mobileapps"
+        deal.isEditable = true
         
         deal = NSEntityDescription.insertNewObject(forEntityName: "Deal", into: DatabaseController.getContext()) as! Deal
         deal.title = "Minecraft: Pocket Edition"
         deal.merchant = "@Google Play"
-        deal.desc = "The pocket edition of Minecraft is on sale.\\n\\nRating 4.5 from 1,977,355 reviews."
+        deal.desc = "The pocket edition of Minecraft is on sale.<br><br>Rating 4.5 from 1,977,355 reviews."
         deal.price = "1.49$ (Was $14.99)"
         deal.imageLink = "https://lh3.googleusercontent.com/30koN0eGl-LHqvUZrCj9HT4qVPQdvN508p2wuhaWUnqKeCp6nrs9QW8v6IVGvGNauA=w300"
         deal.link = "https://play.google.com/store/apps/details?id=com.mojang.minecraftpe"
+        deal.isEditable = true
         
         DatabaseController.saveContext()
     }

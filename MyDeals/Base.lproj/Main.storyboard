@@ -394,13 +394,20 @@
                         </variation>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Deal details" id="mOI-FS-AaM"/>
+                    <navigationItem key="navigationItem" title="Deal details" id="mOI-FS-AaM">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="xO4-N3-2ZI">
+                            <connections>
+                                <segue destination="syb-uX-WSS" kind="show" identifier="editDeal" id="3CK-n8-Oyw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="dealDescription" destination="fEe-cS-mja" id="0PL-Ff-odZ"/>
                         <outlet property="dealImage" destination="WT1-Pd-oLG" id="duR-Ov-cL3"/>
                         <outlet property="dealMerchant" destination="7Nq-yM-NW7" id="JKQ-V7-0II"/>
                         <outlet property="dealPrice" destination="sRG-Uk-HZ9" id="PSI-0t-haM"/>
                         <outlet property="dealTitle" destination="sU3-EK-maa" id="Lbv-BT-37y"/>
+                        <outlet property="editDeal_button" destination="xO4-N3-2ZI" id="Mdr-uL-EoN"/>
                         <outlet property="goToDeal_button" destination="5CB-6j-5b4" id="W4H-ta-ebH"/>
                     </connections>
                 </viewController>
@@ -600,7 +607,7 @@
                     <navigationItem key="navigationItem" title="MyDeals" id="Zdf-7t-Un8">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="XcO-Ko-4SD">
                             <connections>
-                                <segue destination="syb-uX-WSS" kind="show" identifier="editDeal" id="s1d-Ld-q2G"/>
+                                <segue destination="syb-uX-WSS" kind="show" identifier="addDeal" id="s1d-Ld-q2G"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -622,7 +629,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a new deal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Tr-vK-Swv">
-                                <rect key="frame" x="16" y="28" width="343" height="30.5"/>
+                                <rect key="frame" x="16" y="72" width="343" height="30.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="2Tr-vK-Swv" secondAttribute="height" multiplier="34:3" id="hSc-z4-zTO"/>
                                     <constraint firstAttribute="width" secondItem="2Tr-vK-Swv" secondAttribute="height" multiplier="337:33" id="tkH-Je-4ay"/>
@@ -651,16 +658,16 @@
                                 </variation>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="K87-Yg-5eh">
-                                <rect key="frame" x="16" y="73.5" width="343" height="54"/>
+                                <rect key="frame" x="16" y="117.5" width="343" height="45.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deal Title *" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bso-V6-xts">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="27"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="22.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Kj-zM-U9I">
-                                        <rect key="frame" x="0.0" y="27" width="343" height="27"/>
+                                        <rect key="frame" x="0.0" y="22.5" width="343" height="23"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -693,16 +700,16 @@
                                 </variation>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="lta-ci-Dcm">
-                                <rect key="frame" x="16" y="148.5" width="343" height="54.5"/>
+                                <rect key="frame" x="16" y="184" width="343" height="45.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deal Image link *" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ado-Ew-Ala">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="27.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="23"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c2v-Uw-kyl">
-                                        <rect key="frame" x="0.0" y="27.5" width="343" height="27"/>
+                                        <rect key="frame" x="0.0" y="23" width="343" height="22.5"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -735,16 +742,16 @@
                                 </variation>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="gFI-qF-9br">
-                                <rect key="frame" x="16" y="219" width="343" height="55"/>
+                                <rect key="frame" x="16" y="245.5" width="343" height="46"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Link - Let empty if in store" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Wl-QF-5YR">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="28"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="23"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Akf-Dm-HoS">
-                                        <rect key="frame" x="0.0" y="28" width="343" height="27"/>
+                                        <rect key="frame" x="0.0" y="23" width="343" height="23"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -777,16 +784,16 @@
                                 </variation>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="1rM-4j-Ctm">
-                                <rect key="frame" x="16" y="290" width="343" height="54.5"/>
+                                <rect key="frame" x="16" y="307.5" width="343" height="45.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Merchant name *" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LFd-R8-gGZ">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="27.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="22.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9SB-1I-f6I">
-                                        <rect key="frame" x="0.0" y="27.5" width="343" height="27"/>
+                                        <rect key="frame" x="0.0" y="22.5" width="343" height="23"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -819,16 +826,16 @@
                                 </variation>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="5qL-2Y-7XO">
-                                <rect key="frame" x="16" y="372.5" width="343" height="54.5"/>
+                                <rect key="frame" x="16" y="381" width="343" height="46"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price / Promo Code / Reduction *" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eZB-oy-1Ow">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="27.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="23.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2WJ-JJ-2xN">
-                                        <rect key="frame" x="0.0" y="27.5" width="343" height="27"/>
+                                        <rect key="frame" x="0.0" y="23.5" width="343" height="22.5"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -1400,9 +1407,10 @@
         <image name="refresh_icon" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ieH-Xy-AHi"/>
-        <segue reference="43b-Ls-JlV"/>
+        <segue reference="tsl-Nk-0bq"/>
         <segue reference="6S0-TO-JiA"/>
+        <segue reference="TGx-ZA-Pwm"/>
+        <segue reference="3CK-n8-Oyw"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>
