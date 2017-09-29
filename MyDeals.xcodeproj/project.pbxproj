@@ -23,6 +23,7 @@
 		4E8054191F5011FE007D4BEA /* ImageDownload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8054181F5011FE007D4BEA /* ImageDownload.swift */; };
 		4EA0EF191F5CF857005CE296 /* MyDeals.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4EA0EF171F5CF857005CE296 /* MyDeals.xcdatamodeld */; };
 		4EA0EF1D1F5CF8E0005CE296 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA0EF1C1F5CF8E0005CE296 /* CoreData.framework */; };
+		4EBADCCB1F7DFC2000B97B90 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBADCCA1F7DFC2000B97B90 /* Constants.swift */; };
 		4ECAD5361F6B8D150066774C /* EditDealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECAD5351F6B8D150066774C /* EditDealView.swift */; };
 		4ECAD5381F6B94490066774C /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECAD5371F6B94490066774C /* Observer.swift */; };
 		4ECAD53A1F6BA3730066774C /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECAD5391F6BA3730066774C /* Observable.swift */; };
@@ -69,6 +70,7 @@
 		4E8054181F5011FE007D4BEA /* ImageDownload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDownload.swift; sourceTree = "<group>"; };
 		4EA0EF181F5CF857005CE296 /* MyDeals.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyDeals.xcdatamodel; sourceTree = "<group>"; };
 		4EA0EF1C1F5CF8E0005CE296 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		4EBADCCA1F7DFC2000B97B90 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4ECAD5351F6B8D150066774C /* EditDealView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditDealView.swift; sourceTree = "<group>"; };
 		4ECAD5371F6B94490066774C /* Observer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
 		4ECAD5391F6BA3730066774C /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				4E8054181F5011FE007D4BEA /* ImageDownload.swift */,
 				4ECAD5371F6B94490066774C /* Observer.swift */,
 				4ECAD5391F6BA3730066774C /* Observable.swift */,
+				4EBADCCA1F7DFC2000B97B90 /* Constants.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 				4EA0EF191F5CF857005CE296 /* MyDeals.xcdatamodeld in Sources */,
 				4E09C79E1F5FA562005A028C /* Deal+CoreDataClass.swift in Sources */,
 				4E8054191F5011FE007D4BEA /* ImageDownload.swift in Sources */,
+				4EBADCCB1F7DFC2000B97B90 /* Constants.swift in Sources */,
 				4E0288251F4BFAB8009C92EF /* MasterViewController.swift in Sources */,
 				4E09C79F1F5FA562005A028C /* Deal+CoreDataProperties.swift in Sources */,
 				4E09C7931F5FA22C005A028C /* DatabaseController.swift in Sources */,

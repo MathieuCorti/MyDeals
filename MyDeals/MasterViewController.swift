@@ -149,7 +149,12 @@ class MasterViewController: UITableViewController {
         deal.dealTitle.adjustsFontSizeToFitWidth = true
 
         deal.dealMerchant.text  = dealObject.merchant
-        deal.dealPicture.downloadAsyncFrom(link: dealObject.imageLink!)
+        
+        if dealObject.imageSrc == Constants.IMG_SRC_LINK {
+            deal.dealPicture.downloadAsyncFrom(link: dealObject.imageLink!)
+        } else if dealObject.imageSrc == Constants.IMG_SRC_UIIMG {
+            deal.dealPicture.image = UIImage(data: dealObject.image! as Data)
+        }
 
         if dealObject.link == nil || (dealObject.link?.isEmpty)! {
          

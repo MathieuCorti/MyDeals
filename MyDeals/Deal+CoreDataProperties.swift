@@ -23,6 +23,9 @@ extension Deal {
     @NSManaged public var price: String?
     @NSManaged public var title: String?
     @NSManaged public var isEditable: Bool
+    @NSManaged public var image: NSData?
+    @NSManaged public var imageSrc: Int16
+
     
     //MARK: - Initialize
     convenience init(needSave: Bool,  context: NSManagedObjectContext?) {

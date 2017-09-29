@@ -72,7 +72,13 @@ class DetailViewController: UIViewController {
                 merchant.text = deal.merchant
             }
             if let imageView = dealImage {
-                imageView.downloadAsyncFrom(link: deal.imageLink!)
+                
+                if deal.imageSrc == Constants.IMG_SRC_LINK {
+                    imageView.downloadAsyncFrom(link: deal.imageLink!)
+                } else if deal.imageSrc == Constants.IMG_SRC_UIIMG {
+                    imageView.image = UIImage(data: deal.image! as Data)
+                }
+                
             }
             if let price = dealPrice {
                 price.text = deal.price

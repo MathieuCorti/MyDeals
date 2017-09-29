@@ -24,6 +24,8 @@ UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDeleg
     
     @IBOutlet weak var submitDeal_button: UIButton!
     
+    var currentImage: UIImage? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -57,16 +59,18 @@ UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDeleg
         // Fill fields if editting deal
         if isNewDeal == false, let dealObject = deal {
             dealTitle_input.text = dealObject.title
-            dealImageLink_input.text = dealObject.imageLink
+            
+            if dealObject.imageSrc == Constants.IMG_SRC_LINK {
+                dealImageLink_input.text = dealObject.imageLink
+            } else if dealObject.imageSrc == Constants.IMG_SRC_UIIMG {
+                displayImageThumbnail(image: UIImage(data: dealObject.image! as Data)!, textField: dealImageLink_input)
+            }
+            
             dealLink_input.text = dealObject.link
             dealMerchant_input.text = dealObject.merchant?.replacingOccurrences(of: "@", with: "")
             dealPrice_input.text = dealObject.price
             dealDescription_input.text = dealObject.desc?.replacingOccurrences(of: "<br>", with: "\n").replacingOccurrences(of: "<p>", with: "").replacingOccurrences(of: "</p>", with: "")
         }
-    }
-    
-    func fillFields() {
-        
     }
     
     func onClick(_ textField: UITextField) {
@@ -78,9 +82,11 @@ UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDeleg
 
         let leftViewMode_state = textField.leftViewMode
         let placeholder_state = textField.placeholder
+        let imageState = currentImage
         
         textField.leftViewMode = UITextFieldViewMode.never
         textField.placeholder = ""
+        self.currentImage = nil
         
         imagePicker.delegate = self
         
@@ -131,6 +137,7 @@ UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDeleg
         inputAction.addAction(UIAlertAction(title: "cancel", style: .cancel) { (action) in
             textField.leftViewMode = leftViewMode_state
             textField.placeholder = placeholder_state
+            self.currentImage = imageState
         })
         
         self.present(inputAction, animated: true, completion: nil)
@@ -139,8 +146,19 @@ UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDeleg
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
 
-        dealImageLink_input.text = ""
-        dealImageLink_input.leftViewMode = UITextFieldViewMode.always
+        // Store current image
+        currentImage = image
+        
+        // Display the image
+        displayImageThumbnail(image: image, textField: dealImageLink_input)
+        
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func displayImageThumbnail(image: UIImage, textField: UITextField) {
+        
+        textField.text = ""
+        textField.leftViewMode = UITextFieldViewMode.always
         
         let leftImageView = UIImageView()
         leftImageView.image = image
@@ -151,10 +169,9 @@ UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDeleg
         leftView.frame = CGRect(x: 0, y: 0, width: 30, height: 20)
         leftImageView.frame = CGRect(x: 10, y: 0, width: 20, height: 20)
         
-        dealImageLink_input.leftView = leftView
-        dealImageLink_input.placeholder = "Picked image."
-        
-        picker.dismiss(animated: true, completion: nil)
+        textField.leftView = leftView
+        textField.placeholder = "Picked image."
+
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -190,8 +207,8 @@ UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDeleg
                 error = "Please enter a deal title."
             } else if dealMerchant_input.text == "" {
                 error = "Please enter a merchant."
-            } else if dealImageLink_input.text == "" {
-                error = "Please enter an image link."
+            } else if dealImageLink_input.text == "" && currentImage == nil {
+                error = "Please enter an image."
             } else if dealPrice_input.text == "" {
                 error = "Please enter a deal price, code, promotion value."
             } else if dealDescription_input.text == "" {
@@ -229,15 +246,25 @@ UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDeleg
             dealtoSubmit.merchant = "@" + dealMerchant_input.text!
             dealtoSubmit.desc = "<p>" + dealDescription_input.text.replacingOccurrences(of: "\n", with: "<br>") + "</p>"
             dealtoSubmit.price = dealPrice_input.text
-            dealtoSubmit.imageLink = dealImageLink_input.text!
             dealtoSubmit.link = dealLink_input.text!
             
-            DatabaseController.saveContext()
+            if (dealLink_input.text?.isEmpty)! {
+                
+                dealtoSubmit.image = UIImagePNGRepresentation(currentImage!)! as NSData
+                dealtoSubmit.imageSrc = Constants.IMG_SRC_UIIMG
+
+            } else {
+                
+                dealtoSubmit.imageLink = dealImageLink_input.text!
+                dealtoSubmit.imageSrc = Constants.IMG_SRC_LINK
+            }
             
             if isNewDeal == true {
                 dealtoSubmit.isEditable = true
                 Deals.sharedInstance.deals[INDEX_MY_DEALS].insert(dealtoSubmit, at: 0)
             }
+            
+            DatabaseController.saveContext()
             
         } else if segue.identifier == "searchImage" {
             
