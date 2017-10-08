@@ -9,6 +9,7 @@
 import Foundation
 
 struct Constants {
-    static let IMG_SRC_LINK:  Int16 = 0
-    static let IMG_SRC_UIIMG: Int16 = 1
+    static let IMG_SRC_LINK:        Int16 = 0
+    static let IMG_SRC_UIIMG:       Int16 = 1
+    static let NBR_GROUPON_DEALS:   Int = 20
 }

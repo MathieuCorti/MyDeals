@@ -69,8 +69,18 @@ UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDeleg
             dealLink_input.text = dealObject.link
             dealMerchant_input.text = dealObject.merchant?.replacingOccurrences(of: "@", with: "")
             dealPrice_input.text = dealObject.price
-            dealDescription_input.text = dealObject.desc?.replacingOccurrences(of: "<br>", with: "\n").replacingOccurrences(of: "<p>", with: "").replacingOccurrences(of: "</p>", with: "")
+            dealDescription_input.text = EditDealView.prepareDescriptionToDisplay(description: dealObject.desc!)
         }
+    }
+    
+    static func prepareDescriptionToDisplay(description: String) -> String {
+        var preparedDescription: String
+        
+        preparedDescription = description.replacingOccurrences(of: "<br>", with: "\n")
+        preparedDescription = preparedDescription.replacingOccurrences(of: "<p>", with: "")
+        preparedDescription = preparedDescription.replacingOccurrences(of: "</p>", with: "")
+        
+        return preparedDescription
     }
     
     func onClick(_ textField: UITextField) {
@@ -226,11 +236,18 @@ UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDeleg
         return true
     }
     
+    static func prepareDescriptionToSave(description: String) -> String {
+        var newDescription: String = "<p>"
+        
+        newDescription += description.replacingOccurrences(of: "\n", with: "<br>")
+        newDescription += "</p>"
+        
+        return newDescription
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "submitDeal" {
-            
-//            let controller = segue.destination as! MasterViewController
             
             let dealtoSubmit:Deal
             
@@ -244,7 +261,7 @@ UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDeleg
 
             dealtoSubmit.title = dealTitle_input.text!
             dealtoSubmit.merchant = "@" + dealMerchant_input.text!
-            dealtoSubmit.desc = "<p>" + dealDescription_input.text.replacingOccurrences(of: "\n", with: "<br>") + "</p>"
+            dealtoSubmit.desc = EditDealView.prepareDescriptionToSave(description: dealDescription_input.text)
             dealtoSubmit.price = dealPrice_input.text
             dealtoSubmit.link = dealLink_input.text!
             

@@ -20,6 +20,8 @@ class MasterViewController: UITableViewController {
         
         // Register observer
         Deals.sharedInstance.attachObserver(observer: Observer(onNotify: self.updateTableView))
+        Deals.sharedInstance.retrieveUserDeals()
+        Deals.sharedInstance.fetchGrouponDeals()
 
         // Add edit button
         navigationItem.leftBarButtonItem = editButtonItem
@@ -121,7 +123,6 @@ class MasterViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        
         return SECTIONS[section]
     }
 
@@ -202,6 +203,7 @@ class MasterViewController: UITableViewController {
         deal.imageLink = "https://s-media-cache-ak0.pinimg.com/originals/42/a7/c0/42a7c061205975eee974e10a3d4b5487.jpg"
         deal.link = ""
         deal.isEditable = true
+        deal.imageSrc = Constants.IMG_SRC_LINK
         
         deal = NSEntityDescription.insertNewObject(forEntityName: "Deal", into: DatabaseController.getContext()) as! Deal
         deal.title = "30% off sport items"
@@ -211,6 +213,7 @@ class MasterViewController: UITableViewController {
         deal.imageLink = "http://www.thesempost.com/wp-content/uploads/2014/09/amazon-thumb.png"
         deal.link = "https://www.amazon.com/sports-outdoors/b?ie=UTF8&node=3375251"
         deal.isEditable = true
+        deal.imageSrc = Constants.IMG_SRC_LINK
         
         deal = NSEntityDescription.insertNewObject(forEntityName: "Deal", into: DatabaseController.getContext()) as! Deal
         deal.title = "eBay 20% off Tech Sale at 62 Stores"
@@ -220,6 +223,7 @@ class MasterViewController: UITableViewController {
         deal.imageLink = "https://d2hzvxamqgodh.cloudfront.net/sites/default/files/dealimage/new-ebay-logo_2.jpg"
         deal.link = "https://www.ebay.com.au/rpp/tech-sale"
         deal.isEditable = true
+        deal.imageSrc = Constants.IMG_SRC_LINK
         
         deal = NSEntityDescription.insertNewObject(forEntityName: "Deal", into: DatabaseController.getContext()) as! Deal
         deal.title = "Sony MDR-1000X $392 Delivered"
@@ -229,6 +233,7 @@ class MasterViewController: UITableViewController {
         deal.imageLink = "http://brain-images.cdn.dixons.com/6/7/10151876/l_10151876_004.jpg"
         deal.link = "https://www.amazon.com/exec/obidos/ASIN/B01KHZ4ZYY/ozba0e-20"
         deal.isEditable = true
+        deal.imageSrc = Constants.IMG_SRC_LINK
         
         deal = NSEntityDescription.insertNewObject(forEntityName: "Deal", into: DatabaseController.getContext()) as! Deal
         deal.title = "15 Wicked Wings for $10"
@@ -238,6 +243,7 @@ class MasterViewController: UITableViewController {
         deal.imageLink = "https://upload.wikimedia.org/wikipedia/en/thumb/b/bf/KFC_logo.svg/1024px-KFC_logo.svg.png"
         deal.link = "https://www.kfc.com.au/menu/chicken/15-wings-for-10"
         deal.isEditable = true
+        deal.imageSrc = Constants.IMG_SRC_LINK
         
         deal = NSEntityDescription.insertNewObject(forEntityName: "Deal", into: DatabaseController.getContext()) as! Deal
         deal.title = "50x 6x4' Photos - $2.95 Posted"
@@ -247,6 +253,7 @@ class MasterViewController: UITableViewController {
         deal.imageLink = "https://lh3.googleusercontent.com/7d6vwBri4TBAzPp28Y1hnW55M5xJpE06EIDIj2KH7bWToZLlR62NRuE5duGS7D5GxVc=w300"
         deal.link = "https://www.snapfish.com.au/store/mobileapps"
         deal.isEditable = true
+        deal.imageSrc = Constants.IMG_SRC_LINK
         
         deal = NSEntityDescription.insertNewObject(forEntityName: "Deal", into: DatabaseController.getContext()) as! Deal
         deal.title = "Minecraft: Pocket Edition"
@@ -256,6 +263,7 @@ class MasterViewController: UITableViewController {
         deal.imageLink = "https://lh3.googleusercontent.com/30koN0eGl-LHqvUZrCj9HT4qVPQdvN508p2wuhaWUnqKeCp6nrs9QW8v6IVGvGNauA=w300"
         deal.link = "https://play.google.com/store/apps/details?id=com.mojang.minecraftpe"
         deal.isEditable = true
+        deal.imageSrc = Constants.IMG_SRC_LINK
         
         DatabaseController.saveContext()
     }

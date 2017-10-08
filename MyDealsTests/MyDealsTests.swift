@@ -11,6 +11,8 @@ import XCTest
 
 class MyDealsTests: XCTestCase {
     
+    var currentExp: XCTestExpectation?
+    
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -21,15 +23,52 @@ class MyDealsTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testDescriptionsToSave() {
+        
+        let descriptionToSave: String = "sentence1\nsentence2"
+        let descriptionToDisplay: String = "<p>sentence1<br>sentence2</p>"
+        
+        let descriptionToSavePrepared = EditDealView.prepareDescriptionToSave(description: descriptionToSave)
+        let descriptionToDisplayPrepared = EditDealView.prepareDescriptionToDisplay(description: descriptionToDisplay)
+        
+     
+        assert(descriptionToSavePrepared == descriptionToDisplay)
+        assert(descriptionToDisplayPrepared == descriptionToSave)
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
+    func checkDeals(_: String, _: Any?) {
+
+        if (Deals.sharedInstance.deals[INDEX_GROUPON].count == Constants.NBR_GROUPON_DEALS) {
+            currentExp?.fulfill()
+        }
+    }
+    
+    func mesuring(_: String, _: Any?) {
+    }
+    
+    func testDownloadDeals() {
+
+        currentExp = expectation(description: "Download deals")
+        Deals.sharedInstance.attachObserver(observer: Observer(onNotify: self.checkDeals))
+        Deals.sharedInstance.fetchGrouponDeals()
+        
+        
+        waitForExpectations(timeout: 500, handler: { error in XCTAssertNil(error, "Timeout")})
+    }
+    
+    func testDownloadImage() {
+        
+        let imageView: UIImageView = UIImageView()
+        
+        imageView.downloadFrom(link: "https://www.w3schools.com/w3images/lights.jpg")
+        
+        assert(imageView.image != nil)
+    }
+    
+    func testPerformanceRetreivingDealsFromCoreData() {
         self.measure {
-            // Put the code you want to measure the time of here.
+            Deals.sharedInstance.attachObserver(observer: Observer(onNotify: self.mesuring))
+            Deals.sharedInstance.retrieveUserDeals()
         }
     }
     

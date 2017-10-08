@@ -35,12 +35,12 @@ final class Deals : Observable {
 
     override private init() {
         super.init()
-        retrieveUserDeals()
-        fetchGrouponDeals()
+//        retrieveUserDeals()
+//        fetchGrouponDeals()
     }
 
     // Fetch deals
-    private func fetchGrouponDeals() {
+    func fetchGrouponDeals() {
         
         let url:String = "https://partner-api.groupon.com/deals.json?tsToken=US_AFF_0_201236_212556_0&division_id=new-york&channel_id=goods&safe=true&offset=0&limit=20"
         let urlRequest:URL = URL(string: url)!
@@ -94,6 +94,7 @@ final class Deals : Observable {
                     newDeal.isEditable = false
                     
                     self.deals[INDEX_GROUPON].append(newDeal)
+                    self.notify(propertyName: Deals.DEALS_NAME, propertyValue: self.deals)
                 }
                 
             } catch {
@@ -103,7 +104,7 @@ final class Deals : Observable {
         }).resume()
     }
     
-    private func retrieveUserDeals() {
+    func retrieveUserDeals() {
         
         // Load data from db
         let fetchRequest:NSFetchRequest<Deal> = Deal.fetchRequest()
