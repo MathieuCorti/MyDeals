@@ -18,6 +18,7 @@ class MasterViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        addFakeData()
         // Register observer
         Deals.sharedInstance.attachObserver(observer: Observer(onNotify: self.updateTableView))
         Deals.sharedInstance.retrieveUserDeals()
