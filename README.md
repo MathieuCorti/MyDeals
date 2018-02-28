@@ -1,5 +1,5 @@
 # MyDeals
-School project to save and view deals.
+iOS - swift - School project to save and view deals.
 
 
 ## Home page
